@@ -1,3 +1,8 @@
 com\mycompany\calculatorgui\CalculatorLogic.class
+com\mycompany\calculatorgui\Addition.class
 com\mycompany\calculatorgui\gui$1.class
+com\mycompany\calculatorgui\Division.class
+com\mycompany\calculatorgui\Subtraction.class
+com\mycompany\calculatorgui\MathOperations.class
+com\mycompany\calculatorgui\Multiplication.class
 com\mycompany\calculatorgui\gui.class
