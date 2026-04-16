@@ -10,35 +10,53 @@ import java.text.DecimalFormat;
  *
  * @author Prime
  */
+class Addition extends MathOperations {
+    @Override
+    public double execute(double n1, double n2) { return n1 + n2; }
+}
+
+class Subtraction extends MathOperations {
+    @Override
+    public double execute(double n1, double n2) { return n1 - n2; }
+}
+
+class Multiplication extends MathOperations {
+    @Override
+    public double execute(double n1, double n2) { return n1 * n2; }
+}
+
+class Division extends MathOperations {
+    @Override
+    public double execute(double n1, double n2) {
+        if (n2 == 0) throw new ArithmeticException();
+        return n1 / n2;
+    }
+}
+
 public class CalculatorLogic {
     DecimalFormat df = new DecimalFormat("0.00");
     private double num1;
+    private MathOperations currentOp;
     private double result;
-    private String operator;
-
-    public void setFirstOperand(double num, String op) {
-        this.num1 = num;
-        this.operator = op;
+    
+    public void setFirstOperand(double val, String opType) {
+        this.num1 = val;
+        
+        // This links the String from the button to the actual Class logic
+        this.currentOp = switch (opType) {
+            case "+" -> new Addition();
+            case "-" -> new Subtraction();
+            case "*" -> new Multiplication();
+            case "/" -> new Division();
+            default -> null;
+        };
     }
     
     public void calculate(double num2) {
-        
-        if (operator == null) {
+        if (currentOp != null) {
+            result = currentOp.execute(num1, num2);
+        } else{
             result = num2;
-            return;
-        }
-        
-        switch (operator) {
-            case "+" -> result = num1 + num2;
-            case "-" -> result = num1 - num2;
-            case "*" -> result = num1 * num2;
-            case "/" -> {
-                if (num2 == 0)
-                    throw new ArithmeticException(" ");
-
-                result = num1 / num2;
-            }
-            default -> result = num2;
         }
     }
 

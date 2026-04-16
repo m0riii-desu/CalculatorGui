@@ -13,8 +13,6 @@ public class gui extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(gui.class.getName());
     private CalculatorLogic logic = new CalculatorLogic();
-    private double num1 = 0, num2 = 0;
-    String operator = null;
     
     /**
      * Creates new form gui
@@ -75,9 +73,10 @@ public class gui extends javax.swing.JFrame {
         BtnBack = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(204, 204, 204));
+        setBackground(new java.awt.Color(255, 255, 51));
 
-        textBox.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        textBox.setBackground(new java.awt.Color(255, 255, 255));
+        textBox.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         textBox.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
 
         calculatorTitle.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -86,30 +85,48 @@ public class gui extends javax.swing.JFrame {
         calculatorTitle.setToolTipText("");
         calculatorTitle.setFocusTraversalPolicyProvider(true);
 
+        b9.setBackground(new java.awt.Color(255, 255, 0));
+        b9.setForeground(new java.awt.Color(0, 0, 0));
         b9.setText("9");
         b9.addActionListener(this::b9ActionPerformed);
 
+        b7.setBackground(new java.awt.Color(255, 255, 0));
+        b7.setForeground(new java.awt.Color(0, 0, 0));
         b7.setText("7");
         b7.addActionListener(this::b7ActionPerformed);
 
+        b8.setBackground(new java.awt.Color(255, 255, 0));
+        b8.setForeground(new java.awt.Color(0, 0, 0));
         b8.setText("8");
         b8.addActionListener(this::b8ActionPerformed);
 
+        b4.setBackground(new java.awt.Color(255, 255, 0));
+        b4.setForeground(new java.awt.Color(0, 0, 0));
         b4.setText("4");
         b4.addActionListener(this::b4ActionPerformed);
 
+        b5.setBackground(new java.awt.Color(255, 255, 0));
+        b5.setForeground(new java.awt.Color(0, 0, 0));
         b5.setText("5");
         b5.addActionListener(this::b5ActionPerformed);
 
+        b6.setBackground(new java.awt.Color(255, 255, 0));
+        b6.setForeground(new java.awt.Color(0, 0, 0));
         b6.setText("6");
         b6.addActionListener(this::b6ActionPerformed);
 
+        b2.setBackground(new java.awt.Color(255, 255, 0));
+        b2.setForeground(new java.awt.Color(0, 0, 0));
         b2.setText("2");
         b2.addActionListener(this::b2ActionPerformed);
 
+        b1.setBackground(new java.awt.Color(255, 255, 0));
+        b1.setForeground(new java.awt.Color(0, 0, 0));
         b1.setText("1");
         b1.addActionListener(this::b1ActionPerformed);
 
+        b3.setBackground(new java.awt.Color(255, 255, 0));
+        b3.setForeground(new java.awt.Color(0, 0, 0));
         b3.setText("3");
         b3.addActionListener(this::b3ActionPerformed);
 
@@ -122,21 +139,32 @@ public class gui extends javax.swing.JFrame {
         BtnMin.setText("-");
         BtnMin.addActionListener(this::BtnMinActionPerformed);
 
+        BtnClear.setBackground(new java.awt.Color(255, 0, 0));
+        BtnClear.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         BtnClear.setText("Clear");
         BtnClear.addActionListener(this::BtnClearActionPerformed);
 
+        bDot.setBackground(new java.awt.Color(0, 0, 0));
+        bDot.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        bDot.setForeground(new java.awt.Color(255, 255, 0));
         bDot.setText(".");
         bDot.addActionListener(this::bDotActionPerformed);
 
+        bEquals.setBackground(new java.awt.Color(255, 0, 0));
+        bEquals.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         bEquals.setText("=");
         bEquals.addActionListener(this::bEqualsActionPerformed);
 
         BtnPlus.setText("+");
         BtnPlus.addActionListener(this::BtnPlusActionPerformed);
 
+        b0.setBackground(new java.awt.Color(255, 255, 0));
+        b0.setForeground(new java.awt.Color(0, 0, 0));
         b0.setText("0");
         b0.addActionListener(this::b0ActionPerformed);
 
+        BtnBack.setBackground(new java.awt.Color(51, 51, 51));
+        BtnBack.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         BtnBack.setText("Back");
         BtnBack.addActionListener(this::BtnBackActionPerformed);
 
@@ -299,7 +327,7 @@ public class gui extends javax.swing.JFrame {
     private void BtnPlusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnPlusActionPerformed
         try {
             double val = Double.parseDouble(textBox.getText());
-            logic.setFirstOperand(val, "+");
+                logic.setFirstOperand(val, "+");
             textBox.setText(""); // Clear for the next number
         } catch (NumberFormatException e) {
             // Do nothing if box is empty or invalid
